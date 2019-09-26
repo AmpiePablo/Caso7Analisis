@@ -2,16 +2,19 @@ package logica;
 import java.io.*;
 import java.security.*;
 import java.util.*;
+import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 /**
  * laita
  * @author Pablo Ampie
  */
-public class AlgoritmoProba {
+public class AES {
     private ArrayList<Integer> numeros;
     private ArrayList<String> abecedario;
     private static SecretKeySpec secretKey;
-
+    private ArrayList<Posibilidad> subConjunto;
+    private ArrayList<ArrayList<Posibilidad>> subConjuntosTotales;
+    
 
 /*Description:
 Dado el siguiente código para definir una llave de AES
@@ -36,4 +39,16 @@ public static void setKey(String myKey) throws UnsupportedEncodingException  {
   }
 
 }
+  public static String decrypt(String strToDecrypt, String secret)  {
+    try {
+      setKey(secret);
+      Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
+      cipher.init(Cipher.DECRYPT_MODE, secretKey);
+      return new String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)));
+    }
+    catch (Exception e) {
+      System.out.println("Error while decrypting: " + e.toString());
+    }
+    return null;
+  }
 }
