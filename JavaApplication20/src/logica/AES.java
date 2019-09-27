@@ -12,8 +12,8 @@ public class AES {
     private ArrayList<Integer> numeros;
     private ArrayList<String> abecedario;
     private static SecretKeySpec secretKey;
-    private ArrayList<Posibilidad> subConjunto;
-    private ArrayList<ArrayList<Posibilidad>> subConjuntosTotales;
+    private ArrayList<Letra> subConjunto;
+    private ArrayList<ArrayList<Letra>> subConjuntosTotales;
     
 
 /*Description:

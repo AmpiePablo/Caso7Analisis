@@ -1,14 +1,14 @@
 package logica;
-
 /**
- *
+ * laita42
  * @author Pablo Ampie
  */
-public class Posibilidad {
+public class Letra {
     private int numero;
     private String letra;
+    private int posibilidadAcierto;
     
-    Posibilidad(int pNumero, String pLetra){
+    Letra(int pNumero, String pLetra){
         numero=pNumero;
         letra=pLetra;
     }
