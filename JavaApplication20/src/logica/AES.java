@@ -4,6 +4,7 @@ import java.security.*;
 import java.util.*;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
+import java.util.concurrent.ThreadLocalRandom;
 /**
  * laita
  * @author Pablo Ampie
@@ -16,8 +17,11 @@ public class AES {
     private static ArrayList<Letra> total;
     //private ArrayList<ArrayList<Letra>> subConjuntosTotales;
     private static ArrayList<Numero> numeros ;
+    private static String secretKeyActual="29dh120_dk1_3";
     
-    
+    AES(){
+        
+    }
     
 /*Description:
 Dado el siguiente código para definir una llave de AES
@@ -74,6 +78,7 @@ public static void setKey(String myKey) throws UnsupportedEncodingException  {
   public static void main(String args[]){
       String textoEncriptada="xZwM7BWIpSjYyGFr9rhpEa+cYVtACW7yQKmyN6OYSCv0ZEg9jWbc6lKzzCxRSSIvOvlimQZBMZOYnOwiA9yy3YU8zk4abFSItoW6Wj0ufQ0=";
       tomaLetrasNumeros();
+     // System.out.println(completaPalabra("h",7,"29dh120_dk1_3"));
       /*String decryptedString = AES.decrypt(textoEncriptada, "29dh120_dk1_3") ;
       if(decryptedString==null){
           System.out.println("laita");
@@ -92,11 +97,33 @@ public static void setKey(String myKey) throws UnsupportedEncodingException  {
       int actual[]={0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
       numeros=new ArrayList<Numero>();
       for(int j=0;j<actual.length;j++){
-          
+          Numero nuevo=new Numero(actual[j]);
+          numeros.add(nuevo);
       }
   }
+  public static String completaPalabra(String pLetra, int pNumero,String pPalabra){
+      String datoNum=Integer.toString(pNumero);
+      String valorRetorno="";
+      int cont=0;
+      for(int i=0;i<pPalabra.length();i++){
+        if(pPalabra.charAt(i)=='_'){
+            if(cont==0){
+                valorRetorno+=pLetra;
+                cont++;
+            }else {
+                valorRetorno+=datoNum;
+            }
+        }else{
+            valorRetorno+=pPalabra.charAt(i);
+        }
+      }
+      return valorRetorno;
+      
+  }
   
-  
+  public static void sacarPosibilidades(){
+    //algoritmo para incrementar/decrementar posibilidad de acierto
+  }
   
   
 }
