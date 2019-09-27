@@ -4,31 +4,33 @@ package logica;
  * @author Pablo Ampie
  */
 public class Letra {
-    private int numero;
     private String letra;
     private int posibilidadAcierto;
     
-    Letra(int pNumero, String pLetra){
-        numero=pNumero;
+    Letra(String pLetra){
         letra=pLetra;
+        posibilidadAcierto=1;
     }
 
-    
-    
-    public int getNumero() {
-        return numero;
-    }
-    public void setNumero(int numero) {
-        this.numero = numero;
-    }
     public String getLetra() {
         return letra;
     }
     public void setLetra(String letra) {
         this.letra = letra;
     }
+
+    public int getPosibilidadAcierto() {
+        return posibilidadAcierto;
+    }
+
+    public void setPosibilidadAcierto(int posibilidadAcierto) {
+        this.posibilidadAcierto = posibilidadAcierto;
+    }
     
-    
-    
-    
+   public void sumarPosibilidad(){
+        posibilidadAcierto++;
+    }
+    public void restarPosibilidad(){
+        posibilidadAcierto--;
+    }
 }
